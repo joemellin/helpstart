@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %title HelpStart
+    %link(href="/css/bootstrap.min.css" rel="stylesheet" media="screen")
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+
+  %body
+    .container
+      .navbar
+        .navbar-inner
+          .brand
+            = link_to image_tag('hslogosm.png'), root_path
+          %ul.nav.pull-right
+            %li 
+              = link_to "the one", "#"
+            %li 
+              = link_to "the one", "#"
+      = yield
+        
+     
+      %hr
+      %p Lets Fill this World with Startups
+      :plain
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
