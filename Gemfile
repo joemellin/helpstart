@@ -6,7 +6,7 @@ gem 'rails', '3.2.12'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'devise', '2.0.4'
+gem 'devise'
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
 gem "therubyracer"

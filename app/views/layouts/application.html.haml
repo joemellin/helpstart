@@ -9,15 +9,38 @@
 
   %body
     .container
-      .navbar
-        .navbar-inner
-          .brand
-            = link_to image_tag('hslogosm.png'), root_path
-          %ul.nav.pull-right
-            %li 
-              = link_to "the one", "#"
-            %li 
-              = link_to "the one", "#"
+      .row
+        .navbar
+          .navbar-inner
+            .brand
+              = link_to image_tag('hslogosm.png'), root_path
+            %ul.nav.pull-right
+              - if !user_signed_in?
+                %li 
+                  = link_to "Create Account", new_user_registration_path
+              - if !user_signed_in?
+                %li 
+                  = link_to "Login", new_user_session_path
+              - if user_signed_in?
+                %li 
+                  = link_to "Log Out", destroy_user_session_path, :method => :delete
+      .row            
+        - no_dismiss ||= false
+        - if flash[:notice].present? and !flash[:notice].blank?
+          .alert.alert-success
+            - unless no_dismiss
+              %a{:class => "close", :href => "#", "data-dismiss" => "alert"} x
+            %p= raw flash[:notice].html_safe
+
+        - if flash[:alert].present? and !flash[:alert].blank?
+          .alert.alert-error
+            - unless no_dismiss
+              %a{:class => "close", :href => "#", "data-dismiss" => "alert"} x
+            %p= raw flash[:alert].html_safe
+
+
+
+
       = yield
         
      
