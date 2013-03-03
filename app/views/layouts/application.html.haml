@@ -9,7 +9,7 @@
 
   %body
     .container
-      .navbar.navbar-inverse
+      .navbar
         .navbar-inner
           .brand
             = link_to image_tag('hslogosm.png'), root_path
@@ -21,8 +21,6 @@
       = yield
         
      
-      %hr
-      %p Lets Fill this World with Startups
       :plain
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="js/bootstrap.min.js"></script>

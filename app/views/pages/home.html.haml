@@ -1,6 +1,29 @@
 
 %div{:style => "text-align:center"}
-  %h1 Welcome to HelpStart
-  %p
-    Help Startups. Earn Equity.
-  = link_to "Join Now","#", :class => "btn btn-large btn-success"
+  .hero-unit
+    %h3 Welcome to HelpStart
+    %h1 Help Startups. Earn Equity.
+    %h4{style: "padding:10px 0px 30px 0px;"} We take care of the paperwork.  You focus on providing value.
+    = link_to "Join Now","#",style: "font-size:3.0em; line-height: 1.1em;" ,:class => "btn btn-large btn-success"
+  %hr
+  .row
+    .span4
+      %h4 People List How They Can Help
+      %p{style: "padding:0px 30px 0px 30px"} Anyone can list how they can help startups. From design, to industry expertise, to help with fundraising, Startups need your help.
+    .span4
+      %h4 Startups make an offer.
+      %p{style: "padding:0px 30px 0px 30px"} Startups can seach the people who have listed their abilities.  If they find someone who they would like to get help from they make an equity offer.
+    .span4
+      %h4 If accepted, work begins.
+      %p{style: "padding:0px 30px 0px 30px"} Then at the end of the month the startup verifies that they are happy with the help given, the agreed upon equity is tranfered.
+  %hr  
+  .row
+    .span5.offset1.img-polaroid
+      = image_tag "bkg.jpg"
+    .span4{:style => "text-align:left; padding:0px 0px 0px 30px;"}
+      %h2 Intro to HelpStart
+      %h4 Joe Mellin - Founder
+      %p 
+  .row
+    .span12
+      %h4{style: "padding:50px 0px 50px 0px; font-weight:normal;"} Cost? Starups are charged a 10% equity premium on successful connections.
