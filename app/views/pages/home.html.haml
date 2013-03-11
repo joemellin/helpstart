@@ -1,32 +1,53 @@
+-if user_signed_in?
+  %div{:style => "text-align:center"}
+    .row
+      .hero-unit
+        %h1 Awesome!
+        %h2 Joe will be in contact with you shortly :)
+        %br
+        %i I am now interviewing awesome people who want to help startups so I can learn how they can best be of help. I believe this is a really important part in building a great community that will be a resource for the startup ecosystem for years to come.  I appologize for the delay in getting you helping startups.
+        %p - JOE
+        %p{:style => "font-weight:bold;"} Questions? 
+        %p email: mellin.joe@gmail.com 
+        %p call - txt: +1.415.259.8215
 
-%div{:style => "text-align:center"}
-  .row
-    .hero-unit
-      %h1 Help Startups. Earn Equity.
-      %h4{style: "padding:10px 0px 30px 0px;"} We take care of the paperwork.  You focus on providing value.
-      = link_to "Join Now", new_user_registration_path ,style: "font-size:3.0em; line-height: 1.1em;" ,:class => "btn btn-large btn-warning"
-  .row{:style => "padding-bottom:20px"}
-    .span4
-      %h4 People List How They Can Help
-      %p{style: "padding:0px 30px 0px 30px"} Anyone can list how they can help startups. From design, to industry expertise, to help with fundraising, Startups need your help.
-    .span4
-      %h4 Startups Make An Offer
-      %p{style: "padding:0px 30px 0px 30px"} Startups can seach the people who have listed their abilities.  If they find someone who they would like to get help from they make an equity offer.
-    .span4
-      %h4 If Accepted, Work Begins
-      %p{style: "padding:0px 30px 0px 30px"} Then at the end of the month the startup verifies that they are happy with the help given, the agreed upon equity is tranfered.
-  %hr{:style => "padding-bottom:30px"}    
-  .row
-    .span5.offset1.img-polaroid
-      :plain
-        <iframe src="http://player.vimeo.com/video/60937243?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="380" height="214" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-    .span4{:style => "text-align:left; padding:0px 0px 0px 30px;"}
-      %h2 What is HelpStart?
-      %blockquote 
-        %p HelpStart allows early stage startups to get the help they need by allowing them to compensate helpful individuals with monthly equity grants.
-        %small
-          %cite Joe Mellin - HelpStart Founder & Developer
-  .row
-    .white-panel
-      %h4{style: "font-weight:normal"} Cost? Startups are charged a 10% equity premium on successful connections.  
-  
+-else
+  %div{:style => "text-align:center"}
+    .row
+      .hero-unit
+        %h1 Help Startups. Earn Equity.
+        %h4{style: "padding:10px 0px 0px 0px;"} We take care of the paperwork.  You focus on providing value.
+        %p{style: "padding: 0px 0px 10px 0px;"} Want to help startups?
+        = link_to "Apply Now", new_user_registration_path ,style: "font-size:3.0em; line-height: 1.1em;" ,:class => "btn btn-large btn-warning"
+    .row{:style => "padding-bottom:20px"}
+      .span4
+        %h4 People List How They Can Help
+        %p{style: "padding:0px 30px 0px 30px"} Anyone can list how they can help startups. From design, to industry expertise, to help with fundraising, Startups need your help.
+      .span4
+        %h4 Startups Make An Offer
+        %p{style: "padding:0px 30px 0px 30px"} Startups can seach the people who have listed their abilities.  If they find someone who they would like to get help from they make an equity offer.
+      .span4
+        %h4 If Accepted, Work Begins
+        %p{style: "padding:0px 30px 0px 30px"} Then at the end of the month the startup verifies that they are happy with the help given, the agreed upon equity is tranfered.
+    %hr{:style => "padding-bottom:30px"}    
+    .row
+      .span5.offset1.img-polaroid
+        :plain
+          <iframe src="http://player.vimeo.com/video/60937243?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="380" height="214" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+      .span4{:style => "text-align:left; padding:0px 0px 0px 30px;"}
+        %h2 What is HelpStart?
+        %blockquote 
+          %p HelpStart allows early stage startups to get the help they need by allowing them to compensate helpful individuals with monthly equity grants.
+          %small
+            %cite Joe Mellin - HelpStart Founder & Developer
+    %hr{:style => "padding-bottom:20px"} 
+    .row.center
+      .span8.offset2
+        %h3 Private Beta?
+
+        %p
+          We are currently accepting applications from awesome people who love to help startups.  We connect these people with the great startups in our network.  If you want to get in the game and help great founders build their companies, please apply!
+    .row
+      .white-panel
+        %h4{style: "font-weight:normal"} Cost? Startups are charged a 10% equity premium on successful connections.  
+    

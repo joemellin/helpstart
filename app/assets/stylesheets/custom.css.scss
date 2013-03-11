@@ -8,6 +8,29 @@ body {
   background-color:#fff;
 }
 
+.sign_up_css {
+    h1 { 
+    color: #ccc;
+    font-size: 5em;
+    line-height: 1em;
+    padding-top:10px
+    }
+    h4 {
+    color: #888;
+    padding-top:30px;
+    }
+    p {
+    color : #999;
+    padding: 10px 0 10px 0;
+    }
+    a {
+    color: #666;
+    }
+    h3 {
+    color:#222;
+    }
+}
+
 .hero-unit {
   background: url(bkg2.png) no-repeat center center ; 
   -webkit-background-size: cover;

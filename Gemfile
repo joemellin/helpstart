@@ -11,6 +11,11 @@ gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
 gem "therubyracer"
 gem "less-rails"
+gem 'simple_form'
+gem "paperclip" , "~> 3.0"
+gem 'aws-sdk'
+gem 'jquery-rails'
+gem 'intercom-rails', '~> 0.2.14'
 
 # Gems used only for assets and not required
 # in production environments by default.
