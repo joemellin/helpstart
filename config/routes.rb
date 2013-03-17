@@ -7,6 +7,8 @@ HelpStart::Application.routes.draw do
 
   devise_for :users
 
+  match "users/:id" => 'users#show'
+
   get "home" => 'pages#home'
   get "about" => 'pages#about'
   root :to => 'pages#home'

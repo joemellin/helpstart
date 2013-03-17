@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317080142) do
+ActiveRecord::Schema.define(:version => 20130317113020) do
 
   create_table "skills", :force => true do |t|
     t.string   "description"
@@ -31,33 +31,45 @@ ActiveRecord::Schema.define(:version => 20130317080142) do
     t.string   "startup_name"
     t.string   "stup_desc"
     t.string   "stup_angel"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
     t.integer  "user_id"
     t.string   "startup_url"
     t.string   "fb_url"
     t.string   "tw_url"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.string   "corp_docs_file_name"
+    t.string   "corp_docs_content_type"
+    t.integer  "corp_docs_file_size"
+    t.datetime "corp_docs_updated_at"
   end
 
   add_index "startups", ["user_id"], :name => "index_startups_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                    :default => "", :null => false
+    t.string   "encrypted_password",       :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",            :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.string   "linked_in"
     t.string   "bio"
     t.string   "name"
     t.string   "phone"
+    t.string   "profile_pic_file_name"
+    t.string   "profile_pic_content_type"
+    t.integer  "profile_pic_file_size"
+    t.datetime "profile_pic_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

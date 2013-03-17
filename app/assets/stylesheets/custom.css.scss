@@ -31,6 +31,14 @@ body {
     }
 }
 
+
+.left { float: left; }
+.right { float: right; }
+.clear { clear: both; }
+.bold { font-weight: bold; }
+.center { text-align: center;}
+
+
 .hero-unit {
   background: url(bkg2.png) no-repeat center center ; 
   -webkit-background-size: cover;

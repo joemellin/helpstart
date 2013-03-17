@@ -64,4 +64,16 @@ HelpStart::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  # paperclip should use aws3 on heroku
+    config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => "assets.ebtgroups.com",
+      :access_key_id => "AKIAIRSFWCTPJJPCEMLA",
+      :secret_access_key => "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"
+    }
+  }
+
+
 end

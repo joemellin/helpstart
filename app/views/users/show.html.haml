@@ -1,0 +1,31 @@
+
+
+.row
+  .span3
+    = image_tag @user.profile_pic(:large), :class => "img-rounded"
+  .span8.well
+    .left
+      %p Approved Startup Helper
+      %h1= @user.name
+      %p{:style => "width:300px"}
+        = @user.bio
+      -unless @user.linked_in.blank?
+        = link_to "Linked In Profile", @user.linked_in,  :target => '_blank'
+    .right.center
+      %div{:style => "width:200px"}
+        %p Want Joe To Help You?
+        = link_to "Apply Now", "#", :class => "btn btn-large"
+        %br
+        %br
+        %p.tiny 215 Applications
+        %p.tiny 2% Acceptance Rate
+    .clear
+.row{:style => "padding-top: 30px"}
+  .span3
+    %p 
+      %b Startups Helped
+    
+  .span8
+    %div
+      %p
+        %b Help Packages
