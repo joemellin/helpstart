@@ -8,6 +8,9 @@ class User < ActiveRecord::Base
     validates :name, presence: true
     validates :bio, presence: true
   
+  has_many :skills
+  has_one :profile
+  has_many :startup
 
 
   # Setup accessible (or protected) attributes for your model

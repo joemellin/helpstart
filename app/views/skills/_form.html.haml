@@ -1,0 +1,23 @@
+= simple_form_for(@skill, html: {class: "form-horizontal"}) do |f|
+  = f.error_notification
+
+
+  = f.input :title, label: "Skill Title"
+
+  = f.input :description, as: :text, input_html: {rows: "3"}, label: "What can founders expect to gain at the end of one month from this help package?"
+
+  = f.input :meeting_hrs, collection: 1..10, label: "Weekly Meeting Hours"
+  
+  = f.input :meeting_desc, as: :text, input_html: {rows: "3"}, label: "What you will accomplish in your meetings?"
+
+  = f.input :work_hrs, collection: 1..20, label: "Weekly Outside of Meeting Work Hours"
+
+  = f.input :work_desc, as: :text, input_html: {rows: "3"}, label: "What you will accomplish in between your meetings?"
+
+  .actions
+    = f.submit 'Save', :class => "btn btn-warning"
+
+%p
+  %b Want to remove this skill?
+  %br/
+  = link_to 'Delete', @skill, :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => "btn btn-danger"

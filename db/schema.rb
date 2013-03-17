@@ -11,7 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130310152114) do
+ActiveRecord::Schema.define(:version => 20130317080142) do
+
+  create_table "skills", :force => true do |t|
+    t.string   "description"
+    t.string   "title"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
+    t.integer  "meeting_hrs"
+    t.integer  "work_hrs"
+    t.string   "work_desc"
+    t.string   "meeting_desc"
+  end
+
+  add_index "skills", ["user_id"], :name => "index_skills_on_user_id"
+
+  create_table "startups", :force => true do |t|
+    t.string   "startup_name"
+    t.string   "stup_desc"
+    t.string   "stup_angel"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
+    t.string   "startup_url"
+    t.string   "fb_url"
+    t.string   "tw_url"
+  end
+
+  add_index "startups", ["user_id"], :name => "index_startups_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

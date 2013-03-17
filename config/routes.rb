@@ -1,4 +1,10 @@
 HelpStart::Application.routes.draw do
+  resources :startups
+
+
+  resources :skills
+
+
   devise_for :users
 
   get "home" => 'pages#home'

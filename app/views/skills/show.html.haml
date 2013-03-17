@@ -1,0 +1,27 @@
+%p#notice= notice
+.row  
+  .span6.offset3.well
+
+    %p
+      %b Title:
+      = @skill.title
+    %p
+      %b How can a founder expect to benefit from this help:
+      = @skill.description
+    %p
+      %b Weekly Meeting Hours
+      = @skill.meeting_hrs
+    %p
+      %b What will be accomplish in your meetings?
+      = @skill.meeting_desc
+    %p
+      %b Weekly Hours of Work Done by Helper Outside of Meeting.
+      = @skill.work_hrs
+    %p
+      %b What the helper will accomplish in between weekly meetings?
+      = @skill.work_desc
+.row.center
+  - if current_user == @skill.user
+    = link_to 'Edit', edit_skill_path(@skill)
+    \|
+  = link_to 'Back', skills_path

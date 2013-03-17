@@ -1,0 +1,31 @@
+%p#notice= notice
+.row
+  .span6.offset3.well
+    %p
+      %b Startup:
+      = @startup.startup_name
+    %p 
+      %b Founder:
+      = @startup.user.name
+
+    %p
+      %b Description:
+      = @startup.stup_desc
+    %p
+      %b Website:
+      = @startup.startup_url
+    %p
+      %b AngelList
+      = @startup.stup_angel
+    %p
+      %b Facebook:
+      = @startup.fb_url
+    %p
+      %b Twitter:
+      = @startup.tw_url
+  
+.row
+  - if current_user == @startup.user
+    = link_to 'Edit', edit_startup_path(@startup)
+    \|
+  = link_to 'Back', startups_path
