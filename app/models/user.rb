@@ -15,9 +15,9 @@ class User < ActiveRecord::Base
     validates_attachment :profile_pic, presence: true,
                         #content_type: { content_type: ['profile_pic/jpeg','profile_pic/jpg','profile_pic/png','profile_pic/gif']},
                         size: {less_than: 5.megabytes}
-  has_one :skills
+  has_many :skills
   has_one :profile
-  has_one :startups
+  has_many :startups
 
   has_attached_file :profile_pic, styles: { medium: "100x100>", thumb: "50x50>" , large: "250x250>"}
 

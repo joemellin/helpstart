@@ -1,6 +1,7 @@
 class Skill < ActiveRecord::Base
   attr_accessible :description, :meeting_hrs, :title, :work_hrs, :work_desc, :meeting_desc
   
+  
   validate :description, presence: true
   validate :meeting_hrs, presence: true
   validate :title, presence: true

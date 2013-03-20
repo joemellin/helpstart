@@ -7,8 +7,7 @@
     .left
       %p Approved Startup Helper
       %h1= @user.name
-      %p{:style => "width:300px"}
-        = @user.bio
+      
       -unless @user.linked_in.blank?
         = link_to "Linked In Profile", @user.linked_in,  :target => '_blank'
     .right.center
@@ -24,8 +23,23 @@
   .span3
     %p 
       %b Startups Helped
+    - @user.startups.each do |startup|
+      %p= image_tag startup.logo(:medium)
+      %p= link_to startup.startup_name, startup_path
+
     
   .span8
     %div
       %p
         %b Help Packages
+      - @user.skills.each do |skill|
+        %p= skill.title
+        %p= skill.description
+        = link_to "Edit Skill", skill_edit_path
+        .span3
+          %p= skill.meeting_hrs
+          %p= skill.meeting_desc
+        .span3
+          %p= skill.work_hrs
+          %p= skill.work_desc
+
