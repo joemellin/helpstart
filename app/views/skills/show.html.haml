@@ -1,27 +1,42 @@
-%p#notice= notice
-.row  
-  .span6.offset3.well
 
-    %p
-      %b Title:
-      = @skill.title
-    %p
-      %b How can a founder expect to benefit from this help:
-      = @skill.description
-    %p
-      %b Weekly Meeting Hours
-      = @skill.meeting_hrs
-    %p
-      %b What will be accomplish in your meetings?
-      = @skill.meeting_desc
-    %p
-      %b Weekly Hours of Work Done by Helper Outside of Meeting.
-      = @skill.work_hrs
-    %p
-      %b What the helper will accomplish in between weekly meetings?
-      = @skill.work_desc
-.row.center
-  - if current_user == @skill.user
-    = link_to 'Edit', edit_skill_path(@skill)
-    \|
-  = link_to 'Back', skills_path
+.row  
+  .span4
+    = link_to image_tag(@skill.user.profile_pic(:large), :class => "img-rounded"), @skill.user
+  .span8
+    %div
+      .left{:style => 'width:450px;'}
+        %h4 
+          Help Package from
+          =link_to "#{@skill.user.name}" , @skill.user
+        %h1= @skill.title
+      .right{:style => 'padding-top:40px;'}
+        - if current_user == @skill.user
+          =link_to "Apply Now", '#', :class => 'btn disabled btn-large'
+          %p{:style => 'padding:15px 0px 0px 60px;'}= link_to 'Edit', edit_skill_path(@skill)
+        - else
+          =link_to "Apply Now", '#', :class => 'btn btn-success btn-large'
+      .clear
+    %hr
+    %div{:style => 'padding-top:20px;'}
+      %h3 Help Package Description
+      %p
+        %b How can a founder expect to benefit from this help:
+      %p= @skill.description
+      -unless @skill.meeting_hrs.blank?
+        %p
+          %b Weekly Meeting Hours:
+          = @skill.meeting_hrs
+        %p
+          %b What will be accomplish during meetings?
+        %p= @skill.meeting_desc
+      -unless @skill.work_hrs.blank?
+        %p
+          %b Weekly Additional Work Hours:
+          = @skill.work_hrs
+        %p
+          %b What the helper will accomplish in between weekly meetings?
+        %p= @skill.work_desc
+
+
+
+

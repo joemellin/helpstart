@@ -8,15 +8,25 @@ body {
   background-color:#fff;
 }
 
+.graygrad {
+  background-image:url('gr.png');
+  background-repeat:repeat-x;
+}
+
+.upgraygrad {
+  background-image:url('upgre.png');
+  background-repeat:repeat-x;
+}
+
 .sign_up_css {
     h1 { 
-    color: #ccc;
-    font-size: 5em;
+    color: #888;
+    font-size: 3em;
     line-height: 1em;
-    padding-top:10px
+    padding-top:40px
     }
     h4 {
-    color: #888;
+    color: #ccc;
     padding-top:30px;
     }
     p {
@@ -24,7 +34,7 @@ body {
     padding: 10px 0 10px 0;
     }
     a {
-    color: #666;
+    color: #999;
     }
     h3 {
     color:#222;
@@ -40,7 +50,7 @@ body {
 
 
 .hero-unit {
-  background: url(bkg2.png) no-repeat center center ; 
+
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

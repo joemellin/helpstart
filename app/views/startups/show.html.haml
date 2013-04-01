@@ -1,31 +1,36 @@
-%p#notice= notice
-.row
-  .span6.offset3.well
-    %p
-      %b Startup:
-      = @startup.startup_name
-    %p 
-      %b Founder:
-      = @startup.user.name
 
+.row{:style => "padding-top :20px;"}
+  .span4
+    = image_tag @startup.logo(:large), :class => "img-rounded"
+    %p{:style => 'padding: 10px 0px 0px 60px;'}
+      -unless @startup.angel_co.blank?
+        = link_to image_tag('angel.png'), @startup.angel_co,  :target => '_blank'
+
+  .span8
+    .left
+      %p Startup:
+      %h1= @startup.name
+    .right{:style => 'padding: 30px 20px 0px 0px;'}
+      - if current_user == @startup.user
+        = link_to 'Edit Startup', edit_startup_path(@startup) , :class => 'btn btn-large'
+    .clear
+    
+    %p= link_to "Visit Website", @startup.url,  :target => '_blank'
+    %p 
+      %b Founder Contact:
+      =link_to "#{@startup.user.name}", @startup.user
     %p
-      %b Description:
-      = @startup.stup_desc
-    %p
-      %b Website:
-      = @startup.startup_url
-    %p
-      %b AngelList
-      = @startup.stup_angel
-    %p
-      %b Facebook:
-      = @startup.fb_url
-    %p
-      %b Twitter:
-      = @startup.tw_url
-  
-.row
-  - if current_user == @startup.user
-    = link_to 'Edit', edit_startup_path(@startup)
-    \|
-  = link_to 'Back', startups_path
+      %b About #{@startup.name}:
+    %p= @startup.description
+    %p{:style => 'padding: 20px 0px 0px 0px;'}
+      -unless @startup.tw_url.blank?
+        = link_to image_tag('twitter.png'), @startup.tw_url,  :target => '_blank'
+        &nbsp;&nbsp;
+      -unless @startup.fb_url.blank?
+        = link_to image_tag('facebook.png'), @startup.fb_url,  :target => '_blank'
+        &nbsp;&nbsp;
+
+
+
+
+ 

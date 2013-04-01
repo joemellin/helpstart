@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317113020) do
+ActiveRecord::Schema.define(:version => 20130322033008) do
 
   create_table "skills", :force => true do |t|
     t.string   "description"
@@ -28,13 +28,13 @@ ActiveRecord::Schema.define(:version => 20130317113020) do
   add_index "skills", ["user_id"], :name => "index_skills_on_user_id"
 
   create_table "startups", :force => true do |t|
-    t.string   "startup_name"
-    t.string   "stup_desc"
-    t.string   "stup_angel"
+    t.string   "name"
+    t.string   "description"
+    t.string   "angel_co"
     t.datetime "created_at",             :null => false
     t.datetime "updated_at",             :null => false
     t.integer  "user_id"
-    t.string   "startup_url"
+    t.string   "url"
     t.string   "fb_url"
     t.string   "tw_url"
     t.string   "logo_file_name"

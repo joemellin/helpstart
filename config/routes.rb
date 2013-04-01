@@ -1,16 +1,15 @@
 HelpStart::Application.routes.draw do
   resources :startups
 
-
   resources :skills
-
 
   devise_for :users
 
-  match "users/:id" => 'users#show'
+  resources :users
 
   get "home" => 'pages#home'
   get "about" => 'pages#about'
+  get "how" => 'pages#how'
   root :to => 'pages#home'
 
   # The priority is based upon order of creation:

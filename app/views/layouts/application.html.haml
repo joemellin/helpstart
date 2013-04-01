@@ -10,27 +10,38 @@
   %body
     .container
       .row
-        .navbar
-          .navbar-inner
-            .brand
-              = link_to image_tag('hslogosm.png'), root_path
-            %ul.nav.pull-right
-              - if !user_signed_in?
-                %h5{:style => "color:#CCC;padding-top:3px"} BETA : BY APPLICATION ONLY 
-              - if user_signed_in? 
-                %li.dropdown
-                  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-                    Account
-                    %b.caret
-                  %ul.dropdown-menu
-                    %li= link_to 'View Profile', @user_show_path
-                    %li= link_to 'Edit Profile', edit_user_registration_path
- 
-                    %li.divider
-                    %li.nav-header Saying Goodbye :)
-                    %li= link_to "Log Out", destroy_user_session_path, :method => :delete
+        .span12
+          .navbar
+            .navbar-inner
+              .brand
+                = link_to image_tag('hslogosm.png'), root_path
+              %ul.nav.pull-right
+                - if !user_signed_in?
+                  %li= link_to 'Create Account',  new_user_registration_path
+                  %li= link_to 'Login',  new_user_session_path 
+                - if user_signed_in? 
+                  %li.dropdown
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                      Account
+                      %b.caret
+                    %ul.dropdown-menu
+                      %li= link_to 'View Profile', user_path(current_user)
+                      %li= link_to 'Edit Profile', edit_user_registration_path
+                      %li.divider
+                      %li.nav-header My Help Package
+                      - current_user.skills.each do |skill|
+                        %li= link_to skill.title, skill
+                      %li= link_to '+ Add Help Package', new_skill_path
+                      %li.divider
+                      %li.nav-header My Startups
+                      - current_user.startups.each do |startup|
+                        %li= link_to startup.name, startup
+                      %li= link_to '+ Add Startup', new_startup_path
+                      %li.divider
+                      %li.nav-header Saying Goodbye :)
+                      %li= link_to "Log Out", destroy_user_session_path, :method => :delete
 
-      .row            
+      %div           
         - no_dismiss ||= false
         - if flash[:notice].present? and !flash[:notice].blank?
           .alert.alert-success
@@ -47,15 +58,29 @@
 
 
 
-      = yield
-      :plain
-        <!-- jQuery via Google + local fallback, see h5bp.com -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
+        = yield
+        .row
+          .span12
+            %hr
+        .row
+          .span12.center
+            %p{:style => "color:#999;"}
+              =link_to "About", about_path
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              =link_to "How it Works", how_path
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              = link_to 'Create Account',  new_user_registration_path
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              = link_to 'Login',  new_user_session_path 
+          
+        :plain
+          <!-- jQuery via Google + local fallback, see h5bp.com -->
+          <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+          <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
 
-        <!-- Bootstrap jQuery Plugins, compiled and minified -->
-        <script src="js/bootstrap.min.js"></script>
-     
-      :plain
-        <script src="http://code.jquery.com/jquery.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+          <!-- Bootstrap jQuery Plugins, compiled and minified -->
+          <script src="js/bootstrap.min.js"></script>
+       
+        :plain
+          <script src="http://code.jquery.com/jquery.js"></script>
+          <script src="js/bootstrap.min.js"></script>

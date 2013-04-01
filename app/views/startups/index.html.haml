@@ -11,9 +11,9 @@
 
   - @startups.each do |startup|
     %tr
-      %td= startup.startup_name
-      %td= startup.stup_desc
-      %td= startup.stup_angel
+      %td= startup.name
+      %td= startup.description
+      %td= startup.angel_co
       %td= link_to 'Show', startup
       %td= link_to 'Edit', edit_startup_path(startup)
       %td= link_to 'Destroy', startup, :method => :delete, :data => { :confirm => 'Are you sure?' }

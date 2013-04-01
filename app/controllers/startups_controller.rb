@@ -27,7 +27,7 @@ class StartupsController < ApplicationController
   # GET /startups/new
   # GET /startups/new.json
   def new
-    @startup = current_user.startup.new
+    @startup = Startup.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,13 +37,13 @@ class StartupsController < ApplicationController
 
   # GET /startups/1/edit
   def edit
-    @startup = current_user.startup.find(params[:id])
+    @startup = current_user.startups.find(params[:id])
   end
 
   # POST /startups
   # POST /startups.json
   def create
-    @startup = current_user.startup.new(params[:startup])
+    @startup = current_user.startups.new(params[:startup])
 
     respond_to do |format|
       if @startup.save
@@ -59,7 +59,7 @@ class StartupsController < ApplicationController
   # PUT /startups/1
   # PUT /startups/1.json
   def update
-    @startup = current_user.startup.find(params[:id])
+    @startup = current_user.startups.find(params[:id])
 
     respond_to do |format|
       if @startup.update_attributes(params[:startup])
@@ -75,7 +75,7 @@ class StartupsController < ApplicationController
   # DELETE /startups/1
   # DELETE /startups/1.json
   def destroy
-    @startup = current_user.startup.find(params[:id])
+    @startup = current_user.startups.find(params[:id])
     @startup.destroy
 
     respond_to do |format|

@@ -1,7 +1,8 @@
-%h1 Editing startup
+.span6.offset3
+  %h1 
+    Edit 
+    = @startup.name
+  %p= link_to 'View Profile', @startup
 
 = render 'form'
 
-= link_to 'Show', @startup
-\|
-= link_to 'Back', startups_path

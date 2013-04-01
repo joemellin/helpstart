@@ -1,19 +1,17 @@
 .span6.offset3  
   %h2
-    Edit Application
+    Edit Profile
   = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { class: 'form-horizontal' , :method => :put }) do |f|
     = devise_error_messages!
     = f.input :name
-    = f.input :bio
-    = f.input :phone
+    = f.input :bio, as: :text, input_html: {rows: "4"}
+    %br
     = f.input :linked_in
     = f.input :email
-    = f.input :profile_pic, label: "Upload an Image"
+    %br
+    = f.input :profile_pic, label: "Upload a Profile Image"
+    %br
     = f.input :password, lable: "New Password", autocomplete: "off"
     = f.input :password_confirmation, lable: "New Password Confirmation"
     = f.input :current_password
-    .form-actions= f.submit "Update", class: "btn btn-warning"
-  %h3 Cancel my account
-  %p
-    Unhappy? #{button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete}.
-  = link_to "Back", :back
+    .form-actions= f.submit "Update", class: "btn btn-success btn-large"

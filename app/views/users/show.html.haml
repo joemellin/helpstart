@@ -1,45 +1,33 @@
-
-
 .row
-  .span3
+  .span4
     = image_tag @user.profile_pic(:large), :class => "img-rounded"
-  .span8.well
-    .left
-      %p Approved Startup Helper
-      %h1= @user.name
-      
-      -unless @user.linked_in.blank?
-        = link_to "Linked In Profile", @user.linked_in,  :target => '_blank'
-    .right.center
-      %div{:style => "width:200px"}
-        %p Want Joe To Help You?
-        = link_to "Apply Now", "#", :class => "btn btn-large"
-        %br
-        %br
-        %p.tiny 215 Applications
-        %p.tiny 2% Acceptance Rate
-    .clear
-.row{:style => "padding-top: 30px"}
-  .span3
-    %p 
-      %b Startups Helped
-    - @user.startups.each do |startup|
-      %p= image_tag startup.logo(:medium)
-      %p= link_to startup.startup_name, startup_path
-
-    
   .span8
-    %div
-      %p
-        %b Help Packages
+    .left
+      
+      %h1
+        = @user.name
+        -unless @user.linked_in.blank?
+          = link_to image_tag('linkedin.png'), @user.linked_in,  :target => '_blank'
+    .clear
+
+    %p{:style => 'padding-top:20px'} 
+      %b 
+        About 
+        =@user.name
+
+    %p= @user.bio
+
+    %div{:style => 'padding-top:40px;'}
+      %h3{:style => 'color:#ff9900;'} Help Packages
+      %hr
+      
       - @user.skills.each do |skill|
-        %p= skill.title
-        %p= skill.description
-        = link_to "Edit Skill", skill_edit_path
-        .span3
-          %p= skill.meeting_hrs
-          %p= skill.meeting_desc
-        .span3
-          %p= skill.work_hrs
-          %p= skill.work_desc
+        .row{:style => 'padding-bottom:20px;'}
+          .span6
+            %h3= skill.title
+            %b Description:
+            %p= skill.description
+          .span2
+            =link_to 'View Package', skill, :class => 'btn', :style => 'margin-top :20px'
+        %hr
 
