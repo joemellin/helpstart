@@ -11,5 +11,4 @@
         .actions{:style => "padding: 20px 0 0 70px;"}
           = f.button :submit, "Sign in" , :class => 'btn btn-large btn-success'
   .center
-    New to HelpStart? 
-    = link_to "Sign up", new_registration_path(resource_name)
+    = render "devise/shared/links" 

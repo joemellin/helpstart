@@ -74,6 +74,6 @@ HelpStart::Application.configure do
       :secret_access_key => "pmztla6KQtpQB1jWkHhsbWWrAPMJer1UGwJsQuS8"
     }
   }
-
+  config.action_mailer.default_url_options = { :host => 'http://www.helpstart.co' }
 
 end

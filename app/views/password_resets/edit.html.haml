@@ -1,0 +1,18 @@
+.span6.offset3{:style => "padding: 50px 0px 0px 0px;"}
+  .well{:style => "padding: 20px 0px 40px 70px;"}
+    %h1 Reset Password
+
+    = form_for @user, :url => password_reset_path(params[:id]) do |f|
+      - if @user.errors.any?
+        .error_messages
+          %h2 Form is invalid
+          %ul
+            - for message in @user.errors.full_messages
+              %li= message
+      .field
+        = f.label :password
+        = f.password_field :password
+      .field
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation
+  .actions= f.submit "Update Password"

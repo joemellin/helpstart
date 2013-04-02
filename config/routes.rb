@@ -1,7 +1,10 @@
 HelpStart::Application.routes.draw do
+
+
   resources :startups
 
   resources :skills
+  resources :password_resets
 
   devise_for :users
 

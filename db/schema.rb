@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130322033008) do
+ActiveRecord::Schema.define(:version => 20130402131843) do
 
   create_table "skills", :force => true do |t|
     t.string   "description"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(:version => 20130322033008) do
     t.string   "profile_pic_content_type"
     t.integer  "profile_pic_file_size"
     t.datetime "profile_pic_updated_at"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

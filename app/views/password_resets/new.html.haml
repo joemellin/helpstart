@@ -1,0 +1,8 @@
+.span6.offset3{:style => "padding: 50px 0px 0px 0px;"}
+  .well{:style => "padding: 20px 0px 40px 70px;"}
+    %h1{:style => "padding: 0px 0px 30px 0px;"} Reset Password
+    = form_tag password_resets_path, :method => :post do
+      .field{:style => "padding: 0px 0px 0px 50px;"}
+        = label_tag :email
+        = text_field_tag :email, params[:email]
+      .actions{:style => "padding: 30px 0px 0px 73px;"}= submit_tag "Reset Password", :class => 'btn btn-large btn-success'
