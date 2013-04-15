@@ -2,8 +2,7 @@ class ApplicationsController < ApplicationController
   # GET /applications
   # GET /applications.json
   def index
-    @applications = Application.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @applications }

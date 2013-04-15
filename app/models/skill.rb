@@ -9,6 +9,7 @@ class Skill < ActiveRecord::Base
   validates :user_id, presence: true
 
   belongs_to :user
+  has_many :applications
   validates_attachment :image,
                     #content_type: { content_type: ['profile_pic/jpeg','profile_pic/jpg','profile_pic/png','profile_pic/gif']},
                     size: {less_than: 5.megabytes}

@@ -15,7 +15,7 @@ class Startup < ActiveRecord::Base
   #                      size: {less_than: 5.megabytes}
 
   belongs_to :user
-
+  has_many :applications
   has_attached_file :logo, styles: { medium: "100x100>", thumb: "50x50>" , large: "250x250>"}
   has_attached_file :corp_docs
 

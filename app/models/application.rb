@@ -5,7 +5,7 @@ class Application < ActiveRecord::Base
   validate :skill_id, presence: true
   validate :startup_id, presence: true
 
-  has_one :skills
-  has_one :startups
+  belongs_to :skills
+  belongs_to :startups
 
 end

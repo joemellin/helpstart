@@ -41,12 +41,14 @@ body {
 
 .box {
   background-color: #fff;
+  width: 214px;
   margin: 5px;
   float: left;
   -webkit-box-shadow: 1px 100px 6px rgba(0, 0, 0, .375);
   -moz-box-shadow: 1px 100px 6px rgba(0,0,0,.375);
   box-shadow: 1px 1px 6px rgba(0, 0, 0, .375);
-  width: 214px;
+  display: block;
+  
 }
 .box img {
     diplay: block;
