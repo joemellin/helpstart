@@ -1,23 +1,24 @@
-%h1 Listing startups
+.container
+  %h1 Listing startups
 
-%table
-  %tr
-    %th Startup name
-    %th Stup desc
-    %th Stup angel
-    %th
-    %th
-    %th
-
-  - @startups.each do |startup|
+  %table
     %tr
-      %td= startup.name
-      %td= startup.description
-      %td= startup.angel_co
-      %td= link_to 'Show', startup
-      %td= link_to 'Edit', edit_startup_path(startup)
-      %td= link_to 'Destroy', startup, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th Startup name
+      %th Stup desc
+      %th Stup angel
+      %th
+      %th
+      %th
 
-%br
+    - @startups.each do |startup|
+      %tr
+        %td= startup.name
+        %td= startup.description
+        %td= startup.angel_co
+        %td= link_to 'Show', startup
+        %td= link_to 'Edit', edit_startup_path(startup)
+        %td= link_to 'Destroy', startup, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-= link_to 'New Startup', new_startup_path
+  %br
+
+  = link_to 'New Startup', new_startup_path

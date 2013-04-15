@@ -1,33 +1,57 @@
-.row
-  .span4
-    = image_tag @user.profile_pic(:large), :class => "img-rounded"
-  .span8
-    .left
-      
-      %h1
-        = @user.name
-        -unless @user.linked_in.blank?
-          = link_to image_tag('linkedin.png'), @user.linked_in,  :target => '_blank'
-    .clear
+.container
+  .row
+    .span10.offset1
 
-    %p{:style => 'padding-top:20px'} 
-      %b 
-        About 
-        =@user.name
+      .top_box
+        = image_tag "250by7802.jpg", :style => "-moz-border-radius-topleft: 9px;-moz-border-radius-topright: 9px;-webkit-border-top-left-radius: 9px;-webkit-border-top-right-radius: 9px;"
+        - if @user.profile_pic.file?
+          .profile_image_big
+            = image_tag @user.profile_pic(:large), :class => "img-rounded"
+        - else 
+          .profile_image_big
+            = image_tag "default_avatar.png", :class => "img-rounded"
+      .white_box
+        %div
+          .profile_title
+            .big_title  
+              STARTUP PERSON
+            %h1= @user.name
+            -if @user.linked_in.blank?
+              .linked_in_logo
+                = link_to "View Resume", '#', :class => 'btn disabled btn-large'
+            -else
+              .linked_in_logo
+                = link_to "View Resume", @user.linked_in,  :target => '_blank', :class => 'btn btn-success btn-large'
+          %hr
+          -unless @user.bio.blank?
+            .feild_hero_title{:style => "padding:20px 0 20px 50px"}  
+              About 
+              =@user.name
 
-    %p= @user.bio
+            .feild_hero{:style => "padding:0 0 50px 50px"}= @user.bio
+          -unless @user.skills.blank?
+            %div{:style => 'padding-top:0px;'}
+              
+              .feild_hero_title{:style => "padding:0px 0 0px 50px"} HELP PACKAGES
+              - @user.skills.each do |skill|
+                %div{:style => 'padding-bottom:20px;'}
+                  .left
+                    %h3.link_color=link_to "#{skill.title}" , skill
 
-    %div{:style => 'padding-top:40px;'}
-      %h3{:style => 'color:#ff9900;'} Help Packages
-      %hr
-      
-      - @user.skills.each do |skill|
-        .row{:style => 'padding-bottom:20px;'}
-          .span6
-            %h3= skill.title
-            %b Description:
-            %p= skill.description
-          .span2
-            =link_to 'View Package', skill, :class => 'btn', :style => 'margin-top :20px'
-        %hr
+                  .left
+                    .link_skill=link_to 'Learn More', skill, :class => 'btn'
+                  .clear
+          -unless @user.startups.blank?
+            %div{:style => 'padding-top:0px;'}
+              
+              .feild_hero_title{:style => "padding:0px 0 0px 50px"} STARTUPS
+              - @user.startups.each do |startup|
+                %div{:style => 'padding-bottom:20px;'}
+                  .left
+                    %h3.link_color=link_to "#{startup.name}" , startup
+
+                  .left
+                    .link_skill=link_to 'Learn More', startup, :class => 'btn'
+                  .clear
+          %br    
 

@@ -2,8 +2,9 @@ class SkillsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   # GET /skills
   # GET /skills.json
+
   def index
-    @skills = Skill.all
+    @skills = Skill.order("created_at desc").page(params[:page]).per_page(30)
 
     respond_to do |format|
       format.html # index.html.erb

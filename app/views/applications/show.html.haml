@@ -1,0 +1,16 @@
+.container
+  %p#notice= notice
+
+  %p
+    %b Startup:
+    = @application.startup_id
+  %p
+    %b Skill:
+    = @application.skill_id
+  %p
+    %b Message:
+    = @application.message
+
+  = link_to 'Edit', edit_application_path(@application)
+  \|
+  = link_to 'Back', applications_path

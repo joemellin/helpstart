@@ -11,18 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130402131843) do
+ActiveRecord::Schema.define(:version => 20130414115728) do
+
+  create_table "applications", :force => true do |t|
+    t.integer  "startup_id"
+    t.integer  "skill_id"
+    t.string   "message"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "skills", :force => true do |t|
     t.string   "description"
     t.string   "title"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "user_id"
     t.integer  "meeting_hrs"
     t.integer  "work_hrs"
     t.string   "work_desc"
     t.string   "meeting_desc"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "skills", ["user_id"], :name => "index_skills_on_user_id"

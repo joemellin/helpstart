@@ -1,8 +1,9 @@
-.span6.offset3
-  %h1 
-    Edit 
-    = @startup.name
-  %p= link_to 'View Profile', @startup
+.container
+  .span6.offset3
+    %h1 
+      Edit 
+      = @startup.name
+    %p= link_to 'View Profile', @startup
 
-= render 'form'
+  = render 'form'
 

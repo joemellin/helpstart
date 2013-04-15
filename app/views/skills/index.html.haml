@@ -1,25 +1,26 @@
-%h1 Listing skills
+-if !user_signed_in?
+  .container
+    .row{:style => 'height:320px; padding-top:30px'}
+      .span6{:class => "img-polaroid", :style => "margin:0 10px 0 50px"}
+        :plain
+          <iframe src="http://player.vimeo.com/video/60937243?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" width="460" height="264" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+      .span5
+        %h2{:style => 'color:#ff9900;'} Startups:
+        %h1{:style => 'font-size: 5.0em; padding-top:10px;padding-bottom:15px;'} Get Help
+        %h1 Pay with Equity
+        %h4{style: "padding:10px 0px 0px 0px;"} 
+          .ol
+            %li All Packages are .1% Per Month 
+            %li Shares Given Upon Completion
+            %li We Take Care of the Paperwork
+  .row
+    %div{:style => 'text-align:center; color:#999;margin-top:5px;'}
+      %p VIEW HELP PACKAGES
+    %hr{:style => "margin:0px; padding:0px;"}
+-else
 
-%table
-  %tr
-    %th Description
-    %th Meeting hrs
-    %th Work hrs
-    %th Title
-    %th
-    %th
-    %th
-
-  - @skills.each do |skill|
-    %tr
-      %td= skill.description
-      %td= skill.meeting_hrs
-      %td= skill.work_hrs
-      %td= skill.title
-      %td= link_to 'Show', skill
-      %td= link_to 'Edit', edit_skill_path(skill)
-      %td= link_to 'Destroy', skill, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
+.skills_container{:style => "padding-top:20px;"}
+  #skills_page
+    = render @skills
 %br
-
-= link_to 'New Skill', new_skill_path
+= will_paginate @skills

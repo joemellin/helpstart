@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_many :skills
   has_many :startups
 
-  has_attached_file :profile_pic, styles: { medium: "100x100>", thumb: "50x50>" , large: "250x250>"}
+  has_attached_file :profile_pic, styles: { medium: "100x100#", thumb: "75x75#" , large: "250x250#"}, :default_url => "/images/default_avatar.png"
 
   def send_password_reset
     generate_token(:password_reset_token)

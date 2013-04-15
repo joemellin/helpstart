@@ -1,6 +1,10 @@
 HelpStart::Application.routes.draw do
 
 
+  resources :applications
+  get "applications" => 'users#applications'
+
+
   resources :startups
 
   resources :skills
@@ -13,7 +17,7 @@ HelpStart::Application.routes.draw do
   get "home" => 'pages#home'
   get "about" => 'pages#about'
   get "how" => 'pages#how'
-  root :to => 'pages#home'
+  root :to => 'skills#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

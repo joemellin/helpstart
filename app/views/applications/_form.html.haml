@@ -1,0 +1,19 @@
+= form_for @application do |f|
+  - if @application.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@application.errors.count, "error")} prohibited this application from being saved:"
+      %ul
+        - @application.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :startup_id
+    = f.number_field :startup_id
+  .field
+    = f.label :skill_id
+    = f.number_field :skill_id
+  .field
+    = f.label :message
+    = f.text_field :message
+  .actions
+    = f.submit 'Save'

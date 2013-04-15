@@ -1,41 +1,63 @@
+.container
+  .row
+    .span10.offset1
 
-.row  
-  .span4
-    = link_to image_tag(@skill.user.profile_pic(:large), :class => "img-rounded"), @skill.user
-  .span8
-    %div
-      .left{:style => 'width:450px;'}
-        %h4 
-          Help Package from
-          =link_to "#{@skill.user.name}" , @skill.user
-        %h1= @skill.title
-      .right{:style => 'padding-top:40px;'}
-        - if current_user == @skill.user
-          =link_to "Apply Now", '#', :class => 'btn disabled btn-large'
-          %p{:style => 'padding:15px 0px 0px 60px;'}= link_to 'Edit', edit_skill_path(@skill)
+      .top_box
+        - if @skill.image.file?
+          = image_tag(@skill.image(:large), :style => "-moz-border-radius-topleft: 9px;-moz-border-radius-topright: 9px;-webkit-border-top-left-radius: 9px;-webkit-border-top-right-radius: 9px;")
+        - else 
+          = image_tag "250by780.jpg", :style => "-moz-border-radius-topleft: 9px;-moz-border-radius-topright: 9px;-webkit-border-top-left-radius: 9px;-webkit-border-top-right-radius: 9px;"
+        - if @skill.user.profile_pic.file?
+          .profile_image
+            = link_to image_tag(@skill.user.profile_pic(:medium), :class => "img-rounded"), @skill.user
         - else
-          =link_to "Apply Now", '#', :class => 'btn btn-success btn-large'
-      .clear
-    %hr
-    %div{:style => 'padding-top:20px;'}
-      %h3 Help Package Description
-      %p
-        %b How can a founder expect to benefit from this help:
-      %p= @skill.description
-      -unless @skill.meeting_hrs.blank?
-        %p
-          %b Weekly Meeting Hours:
-          = @skill.meeting_hrs
-        %p
-          %b What will be accomplish during meetings?
-        %p= @skill.meeting_desc
-      -unless @skill.work_hrs.blank?
-        %p
-          %b Weekly Additional Work Hours:
-          = @skill.work_hrs
-        %p
-          %b What the helper will accomplish in between weekly meetings?
-        %p= @skill.work_desc
+          .profile_image
+            = link_to image_tag("default_avatar.png", :class => "img-rounded"), @skill.user
+      .white_box
+        %div
+          .apply_btn{:style => 'padding-top:10px; padding-right:10px;'}
+            - if current_user == @skill.user
+              =link_to "Apply Now", '#', :class => 'btn disabled btn-large'
+              %p{:style => 'padding:15px 0px 0px 60px;'}= link_to 'Edit', edit_skill_path(@skill)
+            - else
+              =link_to "Apply Now", '#', :class => 'btn btn-success btn-large'
+          .skill_title{:style => "margin-top:15px;"}
+            .big_title 
+              HELP PACKAGE by
+              =link_to "#{@skill.user.name}" , @skill.user
+            %h2= @skill.title
+
+
+          
+        %hr{:style => "margin-top:45px;"}
+        %div
+          .feild_hero_title{:style => "padding:20px 0 20px 50px"}  benefit to founders
+          .feild_hero{:style => "padding:0 0 50px 50px"}= @skill.description
+          .feild_hero_title{:style => "padding:0px 0 20px 50px; font-size: 14px;"}   Weekly Schedule
+          %div{:style => "padding-bottom:20px;"}
+            -unless @skill.meeting_hrs.blank?
+              .left
+                .hours.center
+
+                  .hours_title Meetings 
+                  .hours_number= @skill.meeting_hrs
+                  .hours_hours Hours / WK
+              .left
+                .field_title Focus of meetings
+                .field_response= @skill.meeting_desc
+              .clear
+            -unless @skill.work_hrs.blank?
+              .left
+                .hours.center
+
+                  .hours_title Work Done
+                  .hours_number= @skill.work_hrs
+                  .hours_hours Hours / WK
+              .left
+                .field_title Focus of work
+                .field_response= @skill.work_desc
+              .clear
+
 
 
 

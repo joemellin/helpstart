@@ -1,0 +1,7 @@
+.container
+  .row
+    .span10.offset1
+      %h2 Applied to Me
+      - @user.skills.application.each do |application|
+        %tr
+          %td= application.message
