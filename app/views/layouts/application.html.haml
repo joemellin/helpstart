@@ -28,7 +28,7 @@
                   %ul.dropdown-menu
                     %li= link_to 'View Profile', user_path(current_user)
                     %li= link_to 'Edit Profile', edit_user_registration_path
-                    %li= link_to 'Applications', applications_path
+
                     %li.divider
                     %li.nav-header My Help Package
                     - current_user.skills.each do |skill|
@@ -73,15 +73,4 @@
               &nbsp;&nbsp;&nbsp;&nbsp;
               = link_to 'Login',  new_user_session_path 
           
-        :plain
-          <!-- jQuery via Google + local fallback, see h5bp.com -->
-          <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-          <script>window.jQuery || document.write('<script src="js/jquery-1.7.1.min.js"><\/script>')</script>
-
-          <!-- Bootstrap jQuery Plugins, compiled and minified -->
-          <script src="js/bootstrap.min.js"></script>
        
-        :plain
-          <script src="http://code.jquery.com/jquery.js"></script>
-          <script src="js/bootstrap.min.js"></script>
-          

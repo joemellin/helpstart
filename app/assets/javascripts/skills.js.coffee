@@ -5,4 +5,3 @@
 jQuery ->
   $('#skills_page').imagesLoaded ->
     $('#skills_page').masonry itemSelector: ".box"
-

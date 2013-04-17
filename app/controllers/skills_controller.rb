@@ -4,7 +4,7 @@ class SkillsController < ApplicationController
   # GET /skills.json
 
   def index
-    @skills = Skill.order("created_at desc").page(params[:page]).per_page(30)
+    @skills = Skill.order("created_at desc").page(params[:page]).per_page(100)
 
     respond_to do |format|
       format.html # index.html.erb

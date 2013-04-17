@@ -1,8 +1,8 @@
 HelpStart::Application.routes.draw do
 
 
-  resources :applications
-  get "applications" => 'users#applications'
+  resources :requests
+  get "requests" => 'users#requests'
 
 
   resources :startups
