@@ -19,22 +19,22 @@ IntercomRails.config do |config|
   # The method/variable that contains the logged in user in your controllers.
   # If it is `current_user` or `@user`, then you can ignore this
   #
-  # config.user.current = Proc.new { current_user }
+  config.user.current = Proc.new { current_user }
   
   # == User model class
   # The class which defines your user model
   #
-  # config.user.model = Proc.new { User }
+  config.user.model = Proc.new { User }
 
   # == User Custom Data
   # A hash of additional data you wish to send about your users.
   # You can provide either a method name which will be sent to the current
   # user object, or a Proc which will be passed the current user.
   #
-  # config.user.custom_data = {
-  #   :plan => Proc.new { |current_user| current_user.plan.name },
-  #   :favorite_color => :favorite_color
-  # }
+  config.user.custom_data = {
+    :linked_in => Proc.new { |current_user| current_user.linked_in },
+  
+  }
 
   # == User -> Company association
   # A Proc that given a user returns an array of companies
@@ -80,7 +80,7 @@ IntercomRails.config do |config|
   #   * :custom attaches the inbox open event to an anchor with an
   #             id of #Intercom.
   #
-  # config.inbox.style = :default 
+  config.inbox.style = :default 
   # config.inbox.style = :custom
 
   # == Inbox Counter

@@ -40,6 +40,7 @@
                       %li= link_to startup.name, startup
                     %li= link_to '+ Add Startup', new_startup_path
                     %li.divider
+                    %a#Intercom{:href => "mailto:7qn5vcm3@incoming.intercom.io"} Support
                     %li.nav-header Saying Goodbye :)
                     %li= link_to "Log Out", destroy_user_session_path, :method => :delete
 
