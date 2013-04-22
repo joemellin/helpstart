@@ -5,17 +5,20 @@
     %br
     = f.input :title, label: "Package Title"
     %br
-    = f.input :image, label: "Upload a Skill Image"
     %br
-    = f.input :description, as: :text, input_html: {rows: "3"}, label: "What can founders expect to gain at the end of one month from this help package?"
+    = f.input :image, label: "Upload a Help Package Background Image"
     %br
-    = f.input :meeting_hrs, collection: 1..10, label: "Weekly Meeting Hours"
+    %br
+    = f.input :description, as: :text, input_html: {rows: "3"}, label: "What can founders expect to gain from this help package?"
+    %br
+    %br
+    = f.input :meeting_hrs, collection: 1..40, label: "Weekly Meeting Hours"
     
     = f.input :meeting_desc, as: :text, input_html: {rows: "3"}, label: "What you will accomplish in your meetings?"
     %br
-    = f.input :work_hrs, collection: 1..20, label: "Weekly Outside of Meeting Work Hours"
+    = f.input :work_hrs, collection: 1..40, label: "Weekly Outside of Meeting Work Hours"
 
-    = f.input :work_desc, as: :text, input_html: {rows: "3"}, label: "What you will accomplish in between your meetings?"
+    = f.input :work_desc, as: :text, input_html: {rows: "3"}, label: "What additional work will you do each week?"
 
     .form-actions
       = f.submit 'Save', :class => "btn btn-success btn-large"

@@ -2,18 +2,19 @@ HelpStart::Application.routes.draw do
 
 
   resources :requests
-  get "requests" => 'users#requests'
-
 
   resources :startups
 
   resources :skills
+  
   resources :password_resets
 
   devise_for :users
 
   resources :users
 
+  get "myrequests" => 'users#myrequests'
+  
   get "home" => 'pages#home'
   get "about" => 'pages#about'
   get "how" => 'pages#how'

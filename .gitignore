@@ -14,11 +14,11 @@
 /log/*.log
 /tmp
 .DS_Store
+/public/system/users/profile_pics
 
 # Ignore Sample Images
 /sampleimages
-
+/public/system/startups/logos
 /public/system/skills/images
-/public/system/users/profile_pics
 
 .rvmrc

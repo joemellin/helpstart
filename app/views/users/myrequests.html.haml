@@ -1,0 +1,55 @@
+.container
+  .row
+    .span6
+      %h2.center Applied to Me
+      .well
+        - @user.received_requests.each do |request|
+          %div
+            .left
+              .message_image= image_tag request.sender.profile_pic(:thumb), :class => "img-rounded"
+            .left.message_header
+              %h4 
+                Startup:
+                = request.startup_id
+              %p
+                Applied for 
+                = request.skill.title
+
+            .left.message_btns
+              = link_to "Accept", "#", :class => "btn btn_mini"
+              = link_to "Ignore", '#', :class => "btn btn_small"
+            .clear
+            .left 
+              .message_title 
+                Message from
+                = request.sender.name
+            .left
+              .message_contact
+                = link_to request.sender.email, mailto:request.sender.email
+            .clear
+            .message_content= request.message
+            .message_time
+              = time_ago_in_words(request.updated_at)
+              ago
+            %hr
+        .center= link_to "Create Help Packages", new_skill_path, :style => "color: #ccc; text-align:center;"
+
+    .span6
+      %h2.center I Applied To
+      .well
+        - @user.sent_requests.each do |request|
+          %div
+            .left
+              .message_image= image_tag request.receiver.profile_pic(:thumb), :class => "img-rounded"
+            .left.message_header
+              %h4 
+                Helper:
+                = request.receiver.name
+              %p
+                Applied for 
+                = request.skill.title
+            .left.message_status
+              Pending
+            .clear
+            %hr
+        .center= link_to "Search Help Packages", root_path, :style => "color: #ccc; text-align:center;"

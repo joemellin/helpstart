@@ -7,10 +7,10 @@
     %br
     = f.input :logo, label: "Upload a Logo"
     %br
-    = f.input :url, label: "Website"
-    = f.input :angel_co, label: "AngelList URL"
-    = f.input :fb_url, label: "Facebook Page"
-    = f.input :tw_url, label: "Twitter Account"
+    = f.input :url, label: "Website",placeholder: 'http://...'
+    = f.input :angel_co, label: "AngelList URL",placeholder: 'http://...'
+    = f.input :fb_url, label: "Facebook Page",placeholder: 'http://...'
+    = f.input :tw_url, label: "Twitter Account",placeholder: 'http://...'
 
     .form-actions
       = f.submit 'Save', :class => "btn btn-success btn-large"

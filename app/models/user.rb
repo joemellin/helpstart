@@ -18,8 +18,8 @@ class User < ActiveRecord::Base
   has_many :startups
   has_attached_file :profile_pic, styles: { medium: "100x100#", thumb: "75x75#" , large: "250x250#"}, :default_url => "/images/default_avatar.png"
   has_many :sent_requests,
-    :class_name => "User",
-    :foreign_key => "receiver_id"
+    :class_name => "Request",
+    :foreign_key => "sender_id"
   has_many :received_requests,
     :class_name => "Request",
     :foreign_key => "receiver_id"
