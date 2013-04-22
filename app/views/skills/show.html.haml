@@ -57,6 +57,7 @@
                 .field_title Focus of work
                 .field_response= @skill.work_desc
               .clear
+            .tag_links= raw @skill.tag_list.map { |t| link_to t, tag_path(t) }.join(' - ')
 
 
 

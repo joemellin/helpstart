@@ -19,7 +19,7 @@ gem 'intercom-rails', '~> 0.2.14'
 gem 'faker', '1.1.2'
 gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', '~> 2.3.3'
 
 # Gems used only for assets and not required
 # in production environments by default.

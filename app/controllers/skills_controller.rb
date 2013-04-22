@@ -4,8 +4,11 @@ class SkillsController < ApplicationController
   # GET /skills.json
 
   def index
-    @skills = Skill.order("created_at desc").page(params[:page]).per_page(100)
-
+    if params[:tag]
+      @skills = Skill.tagged_with(params[:tag]).page(params[:page]).per_page(100)
+    else
+      @skills = Skill.order("created_at desc").page(params[:page]).per_page(100)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @skills }

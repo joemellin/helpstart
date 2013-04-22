@@ -1,6 +1,6 @@
 class Skill < ActiveRecord::Base
-  attr_accessible :description, :meeting_hrs, :title, :work_hrs, :work_desc, :meeting_desc, :image
-  
+  attr_accessible :description, :meeting_hrs, :title, :work_hrs, :work_desc, :meeting_desc, :image, :tag_list
+  acts_as_taggable
   
   validate :description, presence: true
   validate :meeting_hrs, presence: true

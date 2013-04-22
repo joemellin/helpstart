@@ -13,6 +13,9 @@ HelpStart::Application.routes.draw do
 
   resources :users
 
+
+  get 'tags/:tag', to: 'skills#index', as: :tag
+
   get "myrequests" => 'users#myrequests'
   
   get "home" => 'pages#home'
