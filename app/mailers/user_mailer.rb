@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "support@helpstart.co"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -10,4 +10,11 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail :to => user.email, :subject => "HelpStart Password Reset"
   end
+
+  def request_received(user)
+    @user = user
+    mail :to => user.email, :subject => "You Received a Help Request"
+    @url = "http://www.helpstart.co/myrequests"
+
+
 end
