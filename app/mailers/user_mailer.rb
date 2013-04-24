@@ -13,8 +13,10 @@ class UserMailer < ActionMailer::Base
 
   def request_received(user)
     @user = user
-    mail :to => user.email, :subject => "You Received a Help Request"
     @url = "http://www.helpstart.co/myrequests"
+    mail :to => user.email, :subject => "You Received a Help Request"
+  end
+
 
 
 end

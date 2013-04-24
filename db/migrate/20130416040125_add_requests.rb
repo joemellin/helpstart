@@ -6,7 +6,6 @@ class AddRequests < ActiveRecord::Migration
       t.text :message
       t.integer :sender_id
       t.integer :receiver_id
-      t.string :message
       t.timestamps
     end
 

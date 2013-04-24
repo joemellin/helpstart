@@ -1,22 +1,16 @@
-= form_for @request do |f|
+= form_for [@skill, @request] do |f|
   - if @request.errors.any?
     #error_explanation
       %h2= "#{pluralize(@request.errors.count, "error")} prohibited this request from being saved:"
       %ul
         - @request.errors.full_messages.each do |msg|
           %li= msg
-
   .field
     = f.label :startup_id
-    = f.number_field :startup_id
-  .field
-    = f.label :skill_id
-    = f.number_field :skill_id
+    = f.select :startup_id, options_for_select(current_user.startups.map{|s| [s.name, s.id] })
   .field
     = f.label :message
-    = f.text_field :message
-  .field
-    = f.label :receiver_id
-    = f.text_field :receiver_id
+    = f.text_area :message
+  = f.hidden_field :receiver_id, :value => @skill.user_id
   .actions
     = f.submit 'Save'

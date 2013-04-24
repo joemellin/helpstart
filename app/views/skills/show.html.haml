@@ -20,7 +20,7 @@
               =link_to "Apply Now", '#', :class => 'btn disabled btn-large'
               %p{:style => 'padding:15px 0px 0px 60px;'}= link_to 'Edit', edit_skill_path(@skill)
             - else
-              =link_to "Apply Now", '#', :class => 'btn btn-success btn-large'
+              =link_to "Apply Now", new_skill_request_path(@skill), :class => 'btn btn-success btn-large'
           .skill_title{:style => "margin-top:15px;"}
             .big_title 
               HELP PACKAGE by

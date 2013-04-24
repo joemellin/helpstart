@@ -1,11 +1,10 @@
 HelpStart::Application.routes.draw do
 
-
-  resources :requests
-
   resources :startups
 
-  resources :skills
+  resources :skills do
+    resources :requests, :except => [:index, :show]
+  end
   
   resources :password_resets
 
