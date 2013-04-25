@@ -1,6 +1,27 @@
 .container
-  %h1 New request
-
-  = render 'form'
-
-  = link_to 'Back', skill_path(@skill)
+  .requests
+    .rbox
+      .span5{:style => "border-right:solid 1px #F4F4F4;margin-right:10px;"}
+        .left
+          .profile_pic= image_tag @skill.user.profile_pic(:medium), :class => "img-rounded"
+        .left
+          .header
+            .rtitle Applying for
+            %h3= link_to "#{@skill.title}", @skill
+            .rtitle 
+              From 
+              = link_to "#{@skill.user.name}", @skill.user  
+        .clear
+        .rtext
+          %p GUIDELINES
+          %ol
+            %li By applying for help you are confirming that you are a legal representitive of the applying company, it is incorporated and that you are authorized to issues shares.
+            %li You are also agreeing that if an agreement is reached you are willing to compensate the Helper with .1% equity in the applying company per month if the work is completed.
+          %p 
+            To learn more, visit our 
+            = link_to "How it Works", how_path, :style => "color:#888"
+            page.
+ 
+      .span5{:style => "padding-right:20px;"}
+        .rapplicaiton{:style => "color:#ccc;"} Submit Help Request
+        = render 'form'

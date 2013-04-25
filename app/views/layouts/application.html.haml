@@ -26,11 +26,11 @@
                     Account
                     %b.caret
                   %ul.dropdown-menu
+                    %li= link_to 'My Help Requests', myrequests_path
                     %li= link_to 'View Profile', user_path(current_user)
                     %li= link_to 'Edit Profile', edit_user_registration_path
-                    %li= link_to 'Help Requests', myrequests_path
                     %li.divider
-                    %li.nav-header My Help Package
+                    %li.nav-header My Help Packages
                     - current_user.skills.each do |skill|
                       %li= link_to skill.title, skill
                     %li= link_to '+ Add Help Package', new_skill_path
@@ -40,7 +40,8 @@
                       %li= link_to startup.name, startup
                     %li= link_to '+ Add Startup', new_startup_path
                     %li.divider
-                    %li{:id => "Intercom"}= link_to "Support" , "#"
+                    %li= link_to "How it Works", how_path
+                    %li{:id => "Intercom"}= link_to "Contact Support" , "#"
                     %li.nav-header Saying Goodbye :)
                     %li= link_to "Log Out", destroy_user_session_path, :method => :delete
 
@@ -69,6 +70,8 @@
             %p{:style => "color:#999;padding-top:35px;"}
 
               =link_to "How it Works", how_path
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              =link_to "About", about_path
               &nbsp;&nbsp;&nbsp;&nbsp;
               - if !user_signed_in?
                 = link_to 'Create Account',  new_user_registration_path

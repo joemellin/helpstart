@@ -1,8 +1,9 @@
 .container
-  %h1 Editing request
+  .span6.offset3
+    %h1 Editing request
 
-  = render 'form'
+    = render 'form'
 
-  = link_to 'Show', [@skill, @request]
-  \|
-  = link_to 'Back', myrequests_path
+    = link_to 'Show', [@skill, @request]
+    \|
+    = link_to 'Back', myrequests_path

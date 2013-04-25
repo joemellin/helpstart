@@ -1,7 +1,9 @@
-// Place all the styles related to the Pages controller here.
+// Place all the styles related to the Applications controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.aboutbox {
+
+.requests {
+  .rbox {
     -moz-border-radius-topleft: 10px;
     -moz-border-radius-topright: 10px;
     -moz-border-radius-bottomright: 10px;
@@ -15,21 +17,62 @@
     margin:30px auto;
     padding-top:60px;
     background-color:#fff;
-    height:3560px;
+    height:460px;
     width:870px;
     -webkit-box-shadow: 1px 100px 6px rgba(0, 0, 0, .375);
     -moz-box-shadow: 1px 100px 6px rgba(0,0,0,.375);
     box-shadow: 1px 1px 6px rgba(0, 0, 0, .375);
-    padding:50px;
 
-    p {
-    padding-bottom:10px;
-    color:#666;
-    font-size :17px;
-    }
-
-    h4 {
-
-    margin-top: 60px;
+  }
+  .profile_pic {
+    margin: 0px 0px 0 40px;
+  }
+  .header {
+    
+    padding:10px 0 0 20px;
+    width:220px;
+    h3 {
+    font-size: 22px;
+    line-height:10px;
+    a {
+      color:#666;
     }
   }
+ 
+
+  .rtitle {
+    font-size:.9em;
+    color:#999;
+    text-transform: uppercase;
+    font-weight:bold;
+    a {
+      color:#777;
+    }
+  }
+  }
+
+
+  .rtext {
+    margin: 30px 30px 0 40px;
+    color:#999;
+    li {
+    padding: 10px 0 0 0;
+    color:#999;
+
+
+    }
+  }
+  .rapplicaiton {
+    padding-bottom: 20px;
+    font-size:1.7em;
+    color:#999;
+    text-transform: uppercase;
+    font-weight:bold;
+
+
+  }
+
+
+
+
+}

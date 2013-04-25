@@ -1,3 +1,4 @@
+
 = form_for [@skill, @request] do |f|
   - if @request.errors.any?
     #error_explanation
@@ -6,11 +7,16 @@
         - @request.errors.full_messages.each do |msg|
           %li= msg
   .field
-    = f.label :startup_id
+    = f.label "Select Your Startup"
     = f.select :startup_id, options_for_select(current_user.startups.map{|s| [s.name, s.id] })
+    = link_to "Create a Startup", new_startup_path, :style => "margin-left:10px;color:#888;"
+
   .field
-    = f.label :message
-    = f.text_area :message
+    = f.label "Send a message"
+    = f.text_area :message, :style => 'width: 350px; height: 150px;'
   = f.hidden_field :receiver_id, :value => @skill.user_id
   .actions
-    = f.submit 'Save'
+    .right
+      = f.submit 'Apply for Help', :class => "btn btn-large btn-success", :style => "font-size:30px; line-height:40px; margin-top:30px; margin-right:20px;  "
+    .clear
+
