@@ -15,14 +15,14 @@
   .pin_title
     =link_to "#{skill.title}", skill
   .mini_info
-    -unless skill.work_hrs.blank?
-      .left
-        .mini_hours= skill.work_hrs
-      .left
-        .mini_title W
     -unless skill.meeting_hrs.blank?
       .left
         .mini_hours= skill.meeting_hrs
       .left
         .mini_title M
       .clear
+    -unless skill.work_hrs.blank?
+      .left
+        .mini_hours= skill.work_hrs
+      .left
+        .mini_title W
