@@ -22,6 +22,12 @@
     box-shadow: 1px 1px 6px rgba(0, 0, 0, .375);
     padding:50px;
 
+    li {
+      color:#ff9900;
+      font-size :17px;
+      padding-bottom:5px;
+    }
+
     p {
     padding-bottom:10px;
     color:#666;
@@ -29,7 +35,8 @@
     }
 
     h4 {
-
+    color: #ff9900;
+    font-size:25px;
     margin-top: 60px;
     }
   }
