@@ -27,7 +27,7 @@ class RequestsController < ApplicationController
     respond_to do |format|
       if @request.save
 
-        UserMailer.request_received(@request.receiver).deliver
+        # UserMailer.request_received(@request.receiver).deliver
         
         format.html { redirect_to myrequests_path, notice: 'Your Application has been sent!  The Helper will contact you by email if they are interested in helping your Startup :)' }
         format.json { render json: @request, status: :created, location: @request }
