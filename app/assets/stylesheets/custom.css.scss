@@ -116,9 +116,11 @@ body {
 }
 
 .message_image {
+  margin-left:10px;
   margin-right:20px;
   margin-bottom:10px;
-  border: 3px solid #fff;
+  margin-top:10px;
+
   -moz-border-radius-topleft: 9px;
   -moz-border-radius-topright: 9px;
   -moz-border-radius-bottomright: 9px;
@@ -134,6 +136,7 @@ body {
 
 .message_title {
   color:#999;
+  margin-left:10px;
 
 
 }
@@ -153,10 +156,11 @@ body {
   color:#ccc;
   text-align:right;
   margin-right:7px;
+  margin-bottom:10px;
 }
 
 .message_header {
-    width:210px;
+    width:190px;
     margin-bottom:10px;
     margin-right:20px;
 }

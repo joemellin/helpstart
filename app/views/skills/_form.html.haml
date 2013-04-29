@@ -11,16 +11,16 @@
     = f.input :tag_list, label: "Help Tags(comma separated)"
     %br
     %br
-    = f.input :description, as: :text, input_html: {rows: "3"}, label: "What can founders expect to gain from this help package?"
+    = f.input :description, as: :text, input_html: {rows: "4",,:style=> 'width: 100%'}, label: "What can founders expect to gain from this help package?"
     %br
     %br
     = f.input :meeting_hrs, collection: 1..40, label: "Weekly Meeting Hours"
     
-    = f.input :meeting_desc, as: :text, input_html: {rows: "3"}, label: "What you will accomplish in your meetings?"
+    = f.input :meeting_desc, as: :text, input_html: {rows: "4",:style=> 'width: 100%'}, label: "What you will accomplish in your meetings?"
     %br
     = f.input :work_hrs, collection: 1..40, label: "Weekly Work Hours in Addition to Meetings"
 
-    = f.input :work_desc, as: :text, input_html: {rows: "3"}, label: "Examples of what you will do durring these hours"
+    = f.input :work_desc, as: :text, input_html: {rows: "4",:style=> 'width: 100%'}, label: "Examples of what you will do durring these hours"
 
     .form-actions
       = f.submit 'Save', :class => "btn btn-success btn-large"

@@ -6,7 +6,7 @@
         - if @skill.image.file?
           = image_tag(@skill.image(:large), :style => "-moz-border-radius-topleft: 9px;-moz-border-radius-topright: 9px;-webkit-border-top-left-radius: 9px;-webkit-border-top-right-radius: 9px;")
         - else 
-          -if @skill.user = current_user
+          -if @skill.user == current_user
             = link_to image_tag("250by780no.jpg", :style => "-moz-border-radius-topleft: 9px;-moz-border-radius-topright: 9px;-webkit-border-top-left-radius: 9px;-webkit-border-top-right-radius: 9px;"), edit_skill_path
           - else
             = image_tag "250by780.jpg", :style => "-moz-border-radius-topleft: 9px;-moz-border-radius-topright: 9px;-webkit-border-top-left-radius: 9px;-webkit-border-top-right-radius: 9px;"
