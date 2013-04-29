@@ -5,10 +5,10 @@
     - else
       .pin_image_bkg= image_tag "214by70.png"
     - if skill.user.profile_pic.file?
-      .pin_image= image_tag(skill.user.profile_pic(:medium), :style => "-webkit-border-top-left-radius: 5px;-webkit-border-top-right-radius: 5px;-moz-border-radius-topleft: 5px;-moz-border-radius-topright: 5px;-webkit-border-bottom-right-radius: 5px;-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomright: 5px;-moz-border-radius-bottomleft: 5px;")
+      .pin_image= link_to image_tag(skill.user.profile_pic(:medium), :style => "-webkit-border-top-left-radius: 5px;-webkit-border-top-right-radius: 5px;-moz-border-radius-topleft: 5px;-moz-border-radius-topright: 5px;-webkit-border-bottom-right-radius: 5px;-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomright: 5px;-moz-border-radius-bottomleft: 5px;"), skill
     - else
       .pin_image= image_tag("default_avatar.png", :style => "-webkit-border-top-left-radius: 5px;-webkit-border-top-right-radius: 5px;-moz-border-radius-topleft: 5px;-moz-border-radius-topright: 5px;-webkit-border-bottom-right-radius: 7px;-webkit-border-bottom-left-radius: 7px;-moz-border-radius-bottomright: 7px;-moz-border-radius-bottomleft: 7px;")
-    .pin_btn= link_to 'Apply', skill, :class => "btn"
+    .pin_btn= link_to 'View', skill, :class => "btn"
   .pin_subtitle 
     Help Package from
     =link_to "#{skill.user.name}" , skill.user
@@ -20,9 +20,9 @@
         .mini_hours= skill.meeting_hrs
       .left
         .mini_title M
-      .clear
     -unless skill.work_hrs.blank?
       .left
         .mini_hours= skill.work_hrs
       .left
         .mini_title W
+      .clear

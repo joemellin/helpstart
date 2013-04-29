@@ -20,9 +20,11 @@
               - if !user_signed_in?
                 %li= link_to 'How it Works',  how_path
                 %li= link_to 'About',  about_path 
-                %li= link_to 'Create Account',  new_user_registration_path
+                %li= link_to 'Join',new_user_registration_path
                 %li= link_to 'Login',  new_user_session_path 
+                %li= link_to 'BECOME A HELPER',  new_user_registration_path, :class => "btn btn btn-custom", :style => "line-height: 5px; margin-left: 30px; font-size : .8em"
               - if user_signed_in? 
+                %li= link_to 'Find Help', root_path
                 %li.dropdown
                   %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
                     Account

@@ -1,4 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
+  protected
+
+  def after_sign_up_path_for(resource)
+    user_path(current_user)
+  end
+
+
   def update
     # required for settings form to submit when password is left blank
     if params[:user][:password].blank?

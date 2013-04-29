@@ -7,6 +7,9 @@
         - if @user.profile_pic.file?
           .profile_image_big
             = image_tag @user.profile_pic(:large), :class => "img-rounded"
+        - elsif @user == current_user
+          .profile_image_big
+            = link_to image_tag("default_no_avatar.png", :class => "img-rounded"),edit_user_registration_path
         - else 
           .profile_image_big
             = image_tag "default_avatar.png", :class => "img-rounded"
@@ -17,8 +20,13 @@
               STARTUP PERSON
             %h1= @user.name
             -if @user.linked_in.blank?
-              .linked_in_logo
-                = link_to "View Resume", '#', :class => 'btn disabled btn-large'
+              -if @user == current_user
+                .linked_in_logo
+                  = link_to "Add Linked In", edit_user_registration_path , :class => 'btn btn-success btn-large'
+                  %p{:style => 'padding:15px 0px 0px 40px;'}= link_to 'Edit Profile', edit_user_registration_path
+              - else 
+                .linked_in_logo
+                  = link_to "View Resume", '#', :class => 'btn disabled btn-large'
             -else
               .linked_in_logo
                 = link_to "View Resume", @user.linked_in,  :target => '_blank', :class => 'btn btn-success btn-large'
@@ -41,6 +49,14 @@
                   .left
                     .link_skill=link_to 'Learn More', skill, :class => 'btn'
                   .clear
+          - if @user == current_user
+            %div{:style => 'padding-bottom:20px;'}
+              .left
+                %h3.link_color Create a New Help Package
+
+              .left
+                .link_skill=link_to 'Add Help Package', new_skill_path, :class => 'btn', :style => 'width:125px;margin-left:-20px;'
+              .clear
           -unless @user.startups.blank?
             %div{:style => 'padding-top:0px;'}
               
@@ -53,5 +69,15 @@
                   .left
                     .link_skill=link_to 'Learn More', startup, :class => 'btn'
                   .clear
+          - if @user == current_user
+            %div{:style => 'padding-bottom:20px;'}
+              .left
+                %h3.link_color Add a New Startup Profile
+                
+
+              .left
+                .link_skill=link_to 'Add Startup', new_startup_path, :class => 'btn ', :style => 'width:125px; margin-left:-20px;'
+              .clear
+
           %br    
 
