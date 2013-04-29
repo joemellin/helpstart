@@ -8,7 +8,7 @@ HelpStart::Application.routes.draw do
   
   resources :password_resets
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
 
   resources :users
 
