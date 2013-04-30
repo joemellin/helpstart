@@ -9,6 +9,15 @@
   background-color: #ff6600;
 }
 
+#formstuff
+
+simple_form label {
+  float: left;
+  width: 100px;
+  text-align: right;
+  margin: 2px 10px;
+}
+
 .btn-custom {
   background-color: #EDD047 !important;
   background-repeat: repeat-x;
