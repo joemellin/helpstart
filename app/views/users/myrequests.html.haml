@@ -11,7 +11,7 @@
               .left.message_header
                 %h4 
                   Startup:
-                  = request.startup.name
+                  = link_to "#{request.startup.name}", startup_path(request.startup)
                 %p
                   Applied for 
                   = request.skill.title
@@ -46,7 +46,7 @@
               .left.message_header
                 %h4 
                   Helper:
-                  = request.receiver.name
+                  = link_to "#{request.receiver.name}", user_path(request.receiver)
                 %p
                   Applied for 
                   = request.skill.title
